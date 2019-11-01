@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+    <span style="color:red" th:text="${error}"></span>
+
+    <form action="/home" method="POST">
+        Chapter No: <input type="number" th:value="${chapter}" name="chapter"/> <br/>
+        Verse No: <input type="number" th:value="${verse}" name="verse" /> <br/>
+        Word No: <input type="number" th:value="${token}" name="token" /> <br/>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <br/>
+    <br/>
+
+    <div style="width: 30%">
+
+        <ul>
+            <li th:each="tokenNumber:${tokenNumbers}" style="list-style:none; display: inline-block; float: right; margin: 10px;">
+                <img th:src="${ 'http://corpus.quran.com/wordimage?id=' + tokenNumber }" style="float: right;" /> &nbsp;&nbsp;
+            </li>
+        </ul>
+
+    </div>
+
 </body>
 </html>
